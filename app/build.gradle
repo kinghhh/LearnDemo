@@ -1,20 +1,35 @@
-apply plugin: 'com.android.application'
+//apply plugin: 'com.android.application'  用experimental插件的话不能用这个，需要用下面的
+apply plugin:'com.android.model.application'
 
-android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.2'
-    defaultConfig {
-        applicationId "com.example.learndemo"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+model{//这里需要用model包起来
+    android {
+        compileSdkVersion=25//每个都需要用赋值符号 compileSdkVersion 25
+        buildToolsVersion='25.0.2'
+        defaultConfig {
+            applicationId="com.example.learndemo"
+            minSdkVersion.apiLevel = 15
+            targetSdkVersion.apiLevel = 25
+            versionCode=1
+            versionName="1.0"
+        }
+
+        ndk{//添加ndk配置信息
+            moduleName='MyLibrary'//编译ndk生成so库时的文件名，必须和静态代码加载的c文件名相同
+//            toolchain = 'clang'
+//            CFlags.add('-std=c99')
+            // 添加依赖库
+            ldLibs.addAll(['android','OpenSLES', 'log'])
+            // 生成不同abi体系的so库
+//            abiFilters.addAll(['armeabi', 'armeabi-v7a', 'arm64-v8a',
+//                               'x86', 'x86_64',
+//                               'mips', 'mips64'])
+        }
+
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles.add(file('proguard-rules.txt'))// 这里也需要修改
+            }
         }
     }
 }

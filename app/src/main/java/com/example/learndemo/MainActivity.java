@@ -21,8 +21,6 @@ import com.example.learndemo.util.EventBusBean;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import it.gmariotti.recyclerview.itemanimator.SlideInOutLeftItemAnimator;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button btn_1,btn_pager;
@@ -36,6 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         EventBus.getDefault().register(this);
 
+        MyJniTest test = new MyJniTest();
+
+        Log.i("UDP","My jni test : "+test.getString());
+
         findView();
     }
 
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onEvent(EventBusBean bean) {
 //        if (picShowAdapter.getItemCount() )
         for (int i=0;i<bean.getData().size(); i++){
-            rv_pics.setItemAnimator(new SlideInOutLeftItemAnimator(rv_pics));
+//            rv_pics.setItemAnimator(new SlideInOutLeftItemAnimator(rv_pics));
             picShowAdapter.getData().add(0,bean.getData().get(i));
             picShowAdapter.notifyItemInserted(0);
             picShowAdapter.notifyItemRangeChanged(0,picShowAdapter.getItemCount());
