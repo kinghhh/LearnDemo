@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="#9f9f9f">
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:drawableLeft="@mipmap/include_back"
+            android:text="返回"
+            android:textSize="14sp"
+            android:textColor="@android:color/white" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4" />
+
+        <TextView
+            android:id="@+id/tv_select_pic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:singleLine="true"
+            android:padding="10dp"
+            android:text="所有图片"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerlayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_select_pics"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"></android.support.v7.widget.RecyclerView>
+
+        <ListView
+            android:id="@+id/lv_dir"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="#e3e3e3" >
+        </ListView>
+    </android.support.v4.widget.DrawerLayout>
+
+    <Button
+        android:id="@+id/btn_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#999999"
+        android:textColor="@android:color/white"
+        android:layout_gravity="right"
+        android:text="确认"/>
+
+</LinearLayout>
