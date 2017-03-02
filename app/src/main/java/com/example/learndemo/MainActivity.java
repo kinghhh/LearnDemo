@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.learndemo.ListDemo.MyListViewAdapter;
+import com.example.learndemo.ListDemo.MyListViewDemoActivity;
 import com.example.learndemo.activity.SelectPicActivity;
 import com.example.learndemo.activity.ViewPagerWebviewActivity;
 import com.example.learndemo.adapter.PicSelectAdapter;
@@ -23,7 +25,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btn_1,btn_pager;
+    private Button btn_1,btn_pager,btn_list_demo;
     private RecyclerView rv_pics;
     private PicShowAdapter picShowAdapter;
 
@@ -56,10 +58,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void findView(){
         btn_1 = (Button) findViewById(R.id.btn_1);
         btn_pager = (Button) findViewById(R.id.btn_vpager);
+        btn_list_demo = (Button) findViewById(R.id.btn_list_demo);
         rv_pics = (RecyclerView) findViewById(R.id.rv_pics);
 
         btn_1.setOnClickListener(this);
         btn_pager.setOnClickListener(this);
+        btn_list_demo.setOnClickListener(this);
 
         picShowAdapter = new PicShowAdapter(rv_pics);
         picShowAdapter.getData().add("-1");
@@ -85,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_vpager:
                 startActivity(new Intent(this, ViewPagerWebviewActivity.class));
+                break;
+            case R.id.btn_list_demo:
+                startActivity(new Intent(this, MyListViewDemoActivity.class));
                 break;
         }
     }

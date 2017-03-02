@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".activity.SelectPicActivity"/>
         <activity android:name=".activity.ViewPagerWebviewActivity"/>
+        <activity android:name=".ListDemo.MyListViewDemoActivity"/>
     </application>
 
 </manifest>

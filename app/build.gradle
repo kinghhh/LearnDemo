@@ -18,7 +18,8 @@ model{//这里需要用model包起来
 //            toolchain = 'clang'
 //            CFlags.add('-std=c99')
             // 添加依赖库
-            ldLibs.addAll(['android','OpenSLES', 'log'])
+//            ldLibs.addAll("log")
+            ldLibs.addAll(["log","z","m"])
             // 生成不同abi体系的so库
 //            abiFilters.addAll(['armeabi', 'armeabi-v7a', 'arm64-v8a',
 //                               'x86', 'x86_64',
